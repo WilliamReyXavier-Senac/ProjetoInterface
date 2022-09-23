@@ -5,6 +5,8 @@
  */
 package interfacegrafica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author willian.xavier
@@ -35,6 +37,10 @@ public class frm_Principal extends javax.swing.JFrame {
         txtNumB = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtResultado = new javax.swing.JTextField();
+        rbSomar = new javax.swing.JRadioButton();
+        rbMultiplicar = new javax.swing.JRadioButton();
+        rbSubtrair = new javax.swing.JRadioButton();
+        rbDividir = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Senac");
@@ -69,22 +75,37 @@ public class frm_Principal extends javax.swing.JFrame {
 
         jLabel5.setText("Var Resultado");
 
+        txtResultado.setEnabled(false);
         txtResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResultadoActionPerformed(evt);
             }
         });
 
+        rbSomar.setText("Somar");
+        rbSomar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSomarActionPerformed(evt);
+            }
+        });
+
+        rbMultiplicar.setText("Multiplicar");
+
+        rbSubtrair.setText("Subtrair");
+
+        rbDividir.setText("Dividir");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(60, 60, 60)
@@ -92,21 +113,32 @@ public class frm_Principal extends javax.swing.JFrame {
                                     .addComponent(txtNumA, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(txtNumB)
                                     .addComponent(txtResultado)))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)))
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbMultiplicar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rbSubtrair, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(btnCalcular)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addGap(0, 189, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCalcular)
+                                .addGap(67, 67, 67)
+                                .addComponent(rbDividir))
+                            .addComponent(rbSomar))))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(99, 99, 99)
+                .addGap(48, 48, 48)
+                .addComponent(rbSomar)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNumA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbSubtrair))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -114,10 +146,13 @@ public class frm_Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(btnCalcular)
-                .addGap(58, 58, 58))
+                    .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbMultiplicar))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbDividir)
+                    .addComponent(btnCalcular))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,15 +174,36 @@ public class frm_Principal extends javax.swing.JFrame {
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         String a = txtNumA.getText();
         String b = txtNumB.getText();
-        
+
         int n1 = Integer.parseInt(a);
         int n2 = Integer.parseInt(b);
-        
-        int calculo = n1 + n2;
-        String c = String.valueOf(calculo);
-        
-        txtResultado.setText(c);
+
+        if (rbSomar.isSelected()) {
+            int calculo = n1 + n2;
+            String c = String.valueOf(calculo);
+            txtResultado.setText(c);
+        } else if (rbSubtrair.isSelected()) {
+            int calculo = n1 - n2;
+            String c = String.valueOf(calculo);
+            txtResultado.setText(c);
+        } else if (rbMultiplicar.isSelected()) {
+            int calculo = n1 * n2;
+            String c = String.valueOf(calculo);
+            txtResultado.setText(c);
+        } else if (rbDividir.isSelected()) {
+            int calculo = n1 / n2;
+            String c = String.valueOf(calculo);
+            txtResultado.setText(c);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma operação");
+        }
+
+
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void rbSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSomarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbSomarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +246,10 @@ public class frm_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JRadioButton rbDividir;
+    private javax.swing.JRadioButton rbMultiplicar;
+    private javax.swing.JRadioButton rbSomar;
+    private javax.swing.JRadioButton rbSubtrair;
     private javax.swing.JTextField txtNumA;
     private javax.swing.JTextField txtNumB;
     private javax.swing.JTextField txtResultado;

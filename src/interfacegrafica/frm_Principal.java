@@ -29,6 +29,7 @@ public class frm_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNumA = new javax.swing.JTextField();
@@ -82,6 +83,7 @@ public class frm_Principal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(rbSomar);
         rbSomar.setText("Somar");
         rbSomar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,10 +91,13 @@ public class frm_Principal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(rbMultiplicar);
         rbMultiplicar.setText("Multiplicar");
 
+        buttonGroup1.add(rbSubtrair);
         rbSubtrair.setText("Subtrair");
 
+        buttonGroup1.add(rbDividir);
         rbDividir.setText("Dividir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,6 +247,7 @@ public class frm_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

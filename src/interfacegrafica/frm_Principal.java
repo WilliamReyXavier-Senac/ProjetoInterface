@@ -5,6 +5,8 @@
  */
 package interfacegrafica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author willian.xavier
@@ -27,54 +29,90 @@ public class frm_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jmbArquivos = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jmiCadastrar = new javax.swing.JMenuItem();
+        jmiSair = new javax.swing.JMenuItem();
+        jmiAplicativos = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        jmiSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\logoSenac.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 198, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 123, Short.MAX_VALUE))
+        );
+
+        jMenu1.setMnemonic('f');
         jMenu1.setText("Arquivos");
 
-        jMenuItem1.setText("Cadastrar");
-        jMenu1.add(jMenuItem1);
+        jmiCadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jmiCadastrar.setText("Cadastrar");
+        jMenu1.add(jmiCadastrar);
 
-        jMenuItem2.setText("Sair");
-        jMenu1.add(jMenuItem2);
+        jmiSair.setText("Sair");
+        jmiSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiSair);
 
-        jMenuBar1.add(jMenu1);
+        jmbArquivos.add(jMenu1);
 
-        jMenu2.setText("Aplicativos");
+        jmiAplicativos.setMnemonic('a');
+        jmiAplicativos.setText("Aplicativos");
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem3.setText("Calculadora");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jmiAplicativos.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu2);
+        jmbArquivos.add(jmiAplicativos);
 
-        jMenu3.setText("Sobre");
-        jMenuBar1.add(jMenu3);
+        jmiSobre.setMnemonic('s');
+        jmiSobre.setText("Sobre");
+        jmiSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmiSobreMouseClicked(evt);
+            }
+        });
+        jmbArquivos.add(jmiSobre);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jmbArquivos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -87,6 +125,14 @@ public class frm_Principal extends javax.swing.JFrame {
         calc.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jmiSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiSobreMouseClicked
+        JOptionPane.showMessageDialog(null, "v.1.0");
+    }//GEN-LAST:event_jmiSobreMouseClicked
+
+    private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jmiSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,12 +170,14 @@ public class frm_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuBar jmbArquivos;
+    private javax.swing.JMenu jmiAplicativos;
+    private javax.swing.JMenuItem jmiCadastrar;
+    private javax.swing.JMenuItem jmiSair;
+    private javax.swing.JMenu jmiSobre;
     // End of variables declaration//GEN-END:variables
 }

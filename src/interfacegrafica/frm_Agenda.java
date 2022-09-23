@@ -5,6 +5,8 @@
  */
 package interfacegrafica;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author willian.xavier
@@ -30,14 +32,14 @@ public class frm_Agenda extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jtfNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbLista = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        btnInserir = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
+        txtTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agenda de Contatos");
@@ -50,13 +52,13 @@ public class frm_Agenda extends javax.swing.JFrame {
 
         jLabel3.setText("Telefone:");
 
-        jtfNome.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNomeActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -64,33 +66,33 @@ public class frm_Agenda extends javax.swing.JFrame {
                 "Nome", "Telefone"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(tbLista);
+        if (tbLista.getColumnModel().getColumnCount() > 0) {
+            tbLista.getColumnModel().getColumn(0).setResizable(false);
+            tbLista.getColumnModel().getColumn(1).setResizable(false);
         }
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\contatos.png")); // NOI18N
 
-        jButton1.setText("Inserir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInserir.setText("Inserir");
+        btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInserirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Excluir");
+        btnExcluir.setText("Excluir");
 
-        jButton3.setText("Atualizar");
+        btnAtualizar.setText("Atualizar");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                txtTelefoneActionPerformed(evt);
             }
         });
 
@@ -117,15 +119,15 @@ public class frm_Agenda extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfNome)
-                            .addComponent(jFormattedTextField1)))
+                            .addComponent(txtNome)
+                            .addComponent(txtTelefone)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(btnInserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(btnExcluir)
                         .addGap(101, 101, 101)
-                        .addComponent(jButton3)))
+                        .addComponent(btnAtualizar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -138,18 +140,18 @@ public class frm_Agenda extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnInserir)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnAtualizar))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -157,17 +159,19 @@ public class frm_Agenda extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfNomeActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        DefaultTableModel dtmAgenda = (DefaultTableModel) tbLista.getModel();
+        Object[] dados = {txtNome.getText(), txtTelefone.getText()};
+        dtmAgenda.addRow(dados);
+    }//GEN-LAST:event_btnInserirActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_txtTelefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,16 +209,16 @@ public class frm_Agenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnInserir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jtfNome;
+    private javax.swing.JTable tbLista;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

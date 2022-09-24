@@ -41,11 +41,12 @@ public class frm_Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
+        setIconImage(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\logopng.png").getImage());
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\teste (1).jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teste (1).jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,12 +63,12 @@ public class frm_Principal extends javax.swing.JFrame {
                 .addGap(0, 196, Short.MAX_VALUE))
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\arquivos.png")); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arquivos.png"))); // NOI18N
         jMenu1.setMnemonic('f');
         jMenu1.setText("Arquivos");
 
         jmiCadastrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jmiCadastrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\cadastro.png")); // NOI18N
+        jmiCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastro.png"))); // NOI18N
         jmiCadastrar.setText("Cadastrar");
         jmiCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +77,7 @@ public class frm_Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jmiCadastrar);
 
-        jmiSair.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\sair.png")); // NOI18N
+        jmiSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sair.png"))); // NOI18N
         jmiSair.setText("Sair");
         jmiSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,12 +88,12 @@ public class frm_Principal extends javax.swing.JFrame {
 
         jmbArquivos.add(jMenu1);
 
-        jmiAplicativos.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\aplication.png")); // NOI18N
+        jmiAplicativos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/aplication.png"))); // NOI18N
         jmiAplicativos.setMnemonic('a');
         jmiAplicativos.setText("Aplicativos");
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\calculadora.png")); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/calculadora.png"))); // NOI18N
         jMenuItem3.setText("Calculadora");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +104,7 @@ public class frm_Principal extends javax.swing.JFrame {
 
         jmbArquivos.add(jmiAplicativos);
 
-        jmiSobre.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\about.png")); // NOI18N
+        jmiSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/about.png"))); // NOI18N
         jmiSobre.setMnemonic('s');
         jmiSobre.setText("Sobre");
         jmiSobre.addMouseListener(new java.awt.event.MouseAdapter() {

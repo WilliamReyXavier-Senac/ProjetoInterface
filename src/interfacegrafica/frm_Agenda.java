@@ -41,9 +41,12 @@ public class frm_Agenda extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
         txtTelefone = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
+        cbSexo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agenda de Contatos");
+        setIconImage(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\logopng.png").getImage());
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 26)); // NOI18N
@@ -64,22 +67,27 @@ public class frm_Agenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Telefone"
+                "Nome", "Telefone", "Sexo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tbLista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbListaMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tbLista);
-        if (tbLista.getColumnModel().getColumnCount() > 0) {
-            tbLista.getColumnModel().getColumn(0).setResizable(false);
-            tbLista.getColumnModel().getColumn(1).setResizable(false);
-        }
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\willian.xavier\\Desktop\\contatos.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/contatos.png"))); // NOI18N
 
+        btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inserir.png"))); // NOI18N
         btnInserir.setText("Inserir");
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +95,7 @@ public class frm_Agenda extends javax.swing.JFrame {
             }
         });
 
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/excluir.png"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +103,7 @@ public class frm_Agenda extends javax.swing.JFrame {
             }
         });
 
+        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/alterar.png"))); // NOI18N
         btnAtualizar.setText("Atualizar");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,19 +122,18 @@ public class frm_Agenda extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Sexo:");
+
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(jLabel1)
+                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -132,19 +141,27 @@ public class frm_Agenda extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome)
-                            .addComponent(txtTelefone)))
+                            .addComponent(txtTelefone)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(66, 66, 66)
                         .addComponent(btnExcluir)
-                        .addGap(101, 101, 101)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAtualizar)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,14 +178,18 @@ public class frm_Agenda extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInserir)
                     .addComponent(btnExcluir)
                     .addComponent(btnAtualizar))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,8 +202,13 @@ public class frm_Agenda extends javax.swing.JFrame {
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         DefaultTableModel dtmAgenda = (DefaultTableModel) tbLista.getModel();
-        Object[] dados = {txtNome.getText(), txtTelefone.getText()};
+        Object[] dados = {txtNome.getText(), txtTelefone.getText(), cbSexo.getSelectedItem()};
         dtmAgenda.addRow(dados);
+        
+        txtNome.setText("");
+        txtTelefone.setText("");
+        txtNome.requestFocus();
+        
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
@@ -212,6 +238,7 @@ public class frm_Agenda extends javax.swing.JFrame {
         if(tbLista.getSelectedRow() != -1) {
             tbLista.setValueAt(txtNome.getText(), tbLista.getSelectedRow(), 0);
             tbLista.setValueAt(txtTelefone.getText(), tbLista.getSelectedRow(), 1);
+            tbLista.setValueAt(cbSexo.getSelectedItem(), tbLista.getSelectedRow(), 2);
         } 
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -254,10 +281,12 @@ public class frm_Agenda extends javax.swing.JFrame {
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnInserir;
+    private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbLista;
     private javax.swing.JTextField txtNome;
